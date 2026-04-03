@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { healthcareDemoDataset } from './data/demo';
-import { loadDataset, saveDataset, resetLocalData } from './lib/storage';
+import { loadDataset, saveDataset, resetLocalData, loadDecisions } from './lib/storage';
 import { generatePathways } from './lib/generation/engine';
 import { analyzeSkillAlignment } from './lib/alignment/skillMapper';
 import { comparePathways } from './lib/alignment/comparisonEngine';
@@ -15,7 +15,9 @@ import { PathwayComparator } from './features/comparison/PathwayComparator';
 import { ValidationSummary } from './features/validation/ValidationSummary';
 import { MethodologyPanel } from './features/methodology/MethodologyPanel';
 import { RecommendationPanel } from './features/pathways/RecommendationPanel';
-import type { CombinedDataset, GeneratedPathway } from './types';
+import { LogicDisclosure } from './features/governance/LogicDisclosure';
+import { AssumptionsLimitations } from './features/governance/AssumptionsLimitations';
+import type { CombinedDataset, GeneratedPathway, PathwayDecision } from './types';
 
 function App() {
   const [dataset, setDataset] = useState<CombinedDataset>(healthcareDemoDataset);
@@ -23,6 +25,7 @@ function App() {
   const [selectedGoalId, setSelectedGoalId] = useState<string | null>(null);
   const [generatedPathways, setGeneratedPathways] = useState<GeneratedPathway[]>([]);
   const [activePathwayId, setActivePathwayId] = useState<string | null>(null);
+  const [decisions, setDecisions] = useState<Record<string, PathwayDecision>>({});
 
   // Load initial data from localStorage or use empty
   useEffect(() => {
@@ -33,6 +36,9 @@ function App() {
       // Fallback to Healthcare Demo if no v2 data is found
       setDataset(healthcareDemoDataset);
     }
+    
+    // Load local governance decisions
+    setDecisions(loadDecisions());
   }, []);
 
   // Update pathways when goal changes
@@ -114,6 +120,11 @@ function App() {
           <strong>Transparency Notice:</strong> This tool supports the structured exploration of curriculum sequences. It does not prescribe decisions or replace professional academic judgement. Responsibility for curriculum choices and learner outcomes remains with users and their institutions.
         </div>
 
+        <div className="governance-global-layer">
+          <LogicDisclosure />
+          <AssumptionsLimitations />
+        </div>
+
         <div className="summary-cards">
           <div className="card">
             <h2>Current Curriculum</h2>
@@ -155,6 +166,7 @@ function App() {
                     modules={dataset.modules}
                     isActive={activePathwayId === pathway.id}
                     onSelect={() => setActivePathwayId(pathway.id)}
+                    decision={decisions[pathway.id]}
                   />
                 ))}
               </div>
@@ -162,7 +174,11 @@ function App() {
               {activePathway && alignmentAnalysis && (
                 <div className="analysis-panels">
                   <SkillAlignmentView analysis={alignmentAnalysis} />
-                  <PathwayDetail pathway={activePathway} dataset={dataset} />
+                  <PathwayDetail 
+                    pathway={activePathway} 
+                    dataset={dataset} 
+                    initialDecision={decisions[activePathway.id]}
+                  />
                   <RecommendationPanel suggestions={pathwaySuggestions} />
                 </div>
               )}

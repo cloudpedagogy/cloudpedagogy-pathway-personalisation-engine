@@ -1,11 +1,13 @@
-import type { GeneratedPathway, Module, CombinedDataset } from '../../types';
+import type { GeneratedPathway, Module, CombinedDataset, PathwayDecision } from '../../types';
+import { HumanReviewLayer } from '../governance/HumanReviewLayer';
 
 interface PathwayDetailProps {
   pathway: GeneratedPathway;
   dataset: CombinedDataset;
+  initialDecision?: PathwayDecision;
 }
 
-export const PathwayDetail = ({ pathway, dataset }: PathwayDetailProps) => {
+export const PathwayDetail = ({ pathway, dataset, initialDecision }: PathwayDetailProps) => {
   const modules = pathway.modules
     .map(mId => dataset.modules.find(m => m.id === mId))
     .filter((m): m is Module => !!m);
@@ -45,6 +47,12 @@ export const PathwayDetail = ({ pathway, dataset }: PathwayDetailProps) => {
           </div>
         ))}
       </div>
+
+      <HumanReviewLayer 
+        pathway={pathway} 
+        initialDecision={initialDecision} 
+        key={pathway.id} // Reset state when switching pathways
+      />
     </div>
   );
 };

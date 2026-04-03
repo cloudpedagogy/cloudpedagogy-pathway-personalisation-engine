@@ -52,6 +52,25 @@ The engine generates three distinct strategies:
 
 ---
 
+## 🛡️ Governance & Oversight
+
+The engine includes a dedicated layer to support transparency and academic interpretation:
+
+### 1. Transparency Checks (Why this reasoning?)
+On each generated Pathway Card, you can click **"Show Reasoning 🔍"** to reveal the engine's internal logic, including its prioritization of capability areas and its sequencing strategy.
+
+### 2. Human-in-the-loop Review Layer
+When selecting a pathway, a **Governance Review** section appears at the bottom of the detail view:
+- **Reflective Checklist**: Non-blocking prompts to verify intent, capability representation, and workload balance.
+- **Decision Status**: Mark pathways as *Accepted*, *Needs Revision*, or *Unsuitable*.
+- **Local Decision Notes**: Record academic notes for future discussion or revision.
+
+### 3. Data Governance
+- All decisions, notes, and checklist states are stored **exclusively in your local browser storage**.
+- No data is transmitted to external servers, ensuring complete institutional data sovereignty.
+
+---
+
 ## 📝 Customising the Curriculum
 
 To add your own modules or pathway intents:

@@ -6,7 +6,7 @@ An academically grounded tool for designing and exploring coherent learning path
 
 ## 🧐 Overview
 
-The **Pathway Personalisation Engine** facilitates the structured exploration of curriculum sequences. It assists programme teams and academic leads in evaluating how different module combinations align with specific "Pathway Intents" and target professional capabilities.
+The **Pathway Personalisation Engine** facilitates the structured exploration of curriculum sequences. It assists programme teams and academic leads in evaluating how different module combinations align with specific "Pathway Intents" and target professional capabilities through a transparent, governance-ready framework.
 
 🌐 **Live Hosted Version**
 [http://cloudpedagogy-pathway-personalisation-engine.s3-website.eu-west-2.amazonaws.com/](http://cloudpedagogy-pathway-personalisation-engine.s3-website.eu-west-2.amazonaws.com/)
@@ -32,6 +32,7 @@ For detailed setup, usage, and customization guides, please refer to the:
 - **Automated Aligned Sequencing**: Rule-based generation of focused, guided, and comprehensive pathways.
 - **Structural Evaluation**: Side-by-side comparison of curriculum breadth, depth, and coherence.
 - **Capability Mapping**: Identifies alignment gaps and categorical concentration across target competency frameworks.
+- **Governance-Ready Design**: Explicit transparency panels, system assumptions, and reflective checklists for human-in-the-loop oversight.
 - **Methodology Transparency**: Explicit pedagogical logic and governance disclaimers for academic oversight.
 
 ---

@@ -1,13 +1,15 @@
-import type { GeneratedPathway, Module } from '../../types';
+import type { GeneratedPathway, Module, PathwayDecision } from '../../types';
+import { TransparencyPanel } from '../governance/TransparencyPanel';
 
 interface PathwayCardProps {
   pathway: GeneratedPathway;
   modules: Module[];
   isActive: boolean;
   onSelect: () => void;
+  decision?: PathwayDecision;
 }
 
-export const PathwayCard = ({ pathway, modules, isActive, onSelect }: PathwayCardProps) => {
+export const PathwayCard = ({ pathway, modules, isActive, onSelect, decision }: PathwayCardProps) => {
   return (
     <div className={`pathway-card ${isActive ? 'active' : ''}`} onClick={onSelect}>
       <header className="pathway-header">
@@ -20,6 +22,14 @@ export const PathwayCard = ({ pathway, modules, isActive, onSelect }: PathwayCar
         <strong>Progression Logic:</strong>
         <p className="rationale">{pathway.rationale}</p>
       </div>
+
+      <TransparencyPanel pathway={pathway} />
+
+      {decision && decision.status !== 'pending' && (
+        <div className={`pathway-status-indicator ${decision.status}`}>
+          Status: {decision.status.toUpperCase()}
+        </div>
+      )}
       
       <div className="module-timeline">
         {pathway.modules.map((mId, index) => {

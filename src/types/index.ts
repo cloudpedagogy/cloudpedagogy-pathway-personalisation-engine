@@ -43,6 +43,16 @@ export interface GeneratedPathway {
   score?: number; // Internal score for sorting
 }
 
+export type DecisionStatus = 'pending' | 'accepted' | 'revision' | 'unsuitable';
+
+export interface PathwayDecision {
+  pathwayId: string;
+  status: DecisionStatus;
+  notes: string;
+  reviewDate: string;
+  checklist: Record<string, boolean>;
+}
+
 export interface CombinedDataset {
   skills: Skill[];
   learningGoals: LearningGoal[];
