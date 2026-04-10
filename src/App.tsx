@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import { BrandingHeader } from './components/BrandingHeader';
+import { BrandingFooter } from './components/BrandingFooter';
 import { healthcareDemoDataset } from './data/demo';
 import { loadDataset, saveDataset, resetLocalData, loadDecisions } from './lib/storage';
 import { generatePathways } from './lib/generation/engine';
@@ -97,7 +99,9 @@ function App() {
     : [];
 
   return (
-    <div className="app-container">
+    <>
+      <BrandingHeader />
+      <div className="app-container">
       <header className="app-header">
         <h1>Pathway Personalisation Engine</h1>
         <p className="description">
@@ -195,7 +199,9 @@ function App() {
         </section>
       </main>
     </div>
-  );
+    <BrandingFooter />
+  </>
+);
 }
 
 export default App;
