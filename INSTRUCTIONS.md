@@ -1,98 +1,49 @@
-# Pathway Personalisation Engine: User & Developer Instructions
-
-The **Pathway Personalisation Engine** is an academically grounded tool designed for programme teams and academic leads to explore and evaluate structured learning pathways within healthcare and public health domains.
+# Pathway Personalisation Engine — User Instructions
 
 ---
-
-## 🚀 Getting Started
-
-### Prerequisites
-- **Node.js** (v18 or higher recommended)
-- **npm** or **yarn**
-
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/cloudpedagogy/cloudpedagogy-pathway-personalisation-engine.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd cloudpedagogy-pathway-personalisation-engine
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-5. Open your browser to the local URL (usually `http://localhost:5173`).
+### 2. What This Tool Does
+This application dynamically generates and manages personalized elective pathways for learners. It aligns a student's chosen modules against institutional progression rules and professional frameworks to ensure their pathway remains coherent and valid.
 
 ---
-
-## 🛠️ Using the Engine
-
-### 1. Loading the Curriculum
-By default, the engine loads a healthcare/public health curriculum. You can always reset to the base curriculum by clicking **"Load Demo Curriculum"** in the header.
-
-### 2. Selecting a Pathway Intent
-Choose one of the predefined "Pathway Intents" (e.g., *Epidemiological Research Pathway*). This defines the target capabilities that the engine will use to generate recommended sequences.
-
-### 3. Evaluating Aligned Pathways
-The engine generates three distinct strategies:
-- **Focused**: The most efficient route to cover the primary intent.
-- **Guided**: Uses pre-vetted curriculum templates as a baseline.
-- **Comprehensive**: Provides a broad-spectrum deep dive into the category.
-
-### 4. Analysis & Comparison
-- **Capability Mapping**: View mapped vs. unaligned target competencies.
-- **Structural Evaluation**: Compare pathways side-by-side using metrics like *Analytical Depth* and *Sequencing Depth*.
-- **Extension Insights**: View optional suggestions for curriculum enhancements.
+### 3. Role in the Ecosystem
+- **Phase:** Phase 4 — Curriculum Extensions
+- **Role:** Designing learner pathways aligned to professional frameworks.
+- **Reference:** [../SYSTEM_OVERVIEW.md](../SYSTEM_OVERVIEW.md)
 
 ---
-
-## 🛡️ Governance & Oversight
-
-The engine includes a dedicated layer to support transparency and academic interpretation:
-
-### 1. Transparency Checks (Why this reasoning?)
-On each generated Pathway Card, you can click **"Show Reasoning 🔍"** to reveal the engine's internal logic, including its prioritization of capability areas and its sequencing strategy.
-
-### 2. Human-in-the-loop Review Layer
-When selecting a pathway, a **Governance Review** section appears at the bottom of the detail view:
-- **Reflective Checklist**: Non-blocking prompts to verify intent, capability representation, and workload balance.
-- **Decision Status**: Mark pathways as *Accepted*, *Needs Revision*, or *Unsuitable*.
-- **Local Decision Notes**: Record academic notes for future discussion or revision.
-
-### 3. Data Governance
-- All decisions, notes, and checklist states are stored **exclusively in your local browser storage**.
-- No data is transmitted to external servers, ensuring complete institutional data sovereignty.
+### 4. When to Use This Tool
+- During student advising and enrollment periods to help design a legitimate pathway.
+- When mapping how a customized sequence of modules will still meet final professional accreditation requirements.
+- To detect if a student's proposed choices create an illegal or structurally deficient program.
 
 ---
-
-## 📝 Customising the Curriculum
-
-To add your own modules or pathway intents:
-1. Open `src/data/demo/index.ts`.
-2. Add your new `skills`, `learningGoals`, or `modules` to the `healthcareDemoDataset` object.
-3. Ensure all `id` fields are unique.
-4. If you have defined prerequisites, ensure those `id`s exist in the `modules` array.
+### 5. Inputs
+- Requires a structured curriculum baseline (JSON).
+- Input identifying the specific student context or selected modular choices.
 
 ---
-
-## 📦 Deployment
-
-### Building for Production
-To generate a production-ready bundle in the `dist/` folder:
-```bash
-npm run build
-```
-
-### Static Hosting
-The `dist/` folder can be hosted on any static web server (e.g., AWS S3, GitHub Pages, Vercel). Ensure your server is configured to serve `index.html`.
+### 6. How to Use (Step-by-Step)
+1. Load the core programme structure.
+2. Select the intended specialist track or allow manual selection of available elective modules.
+3. Review the engine's assessment of coherence; it will flag missing prerequisites or credit imbalances.
+4. Check the generated "Progression Map" to confirm all mandatory skills are met by the chosen pathway.
+5. Lock the pathway and export the final personalized structure constraint map.
 
 ---
+### 7. Key Outputs
+- A validated, student-specific progression structure mapping required outcomes.
+- Warnings detailing why a selected pathway might be incompatible or non-compliant.
 
-## 🛡️ Governance & Professional Practice
-This tool is an **Information Aid**, not a decision-maker. All generated pathways should be reviewed by academic leads to ensure they meet institutional standards and specific learner requirements.
+---
+### 8. How It Connects to Other Tools
+- **Upstream:** Consumes rules and module structures generated in the **Mapping Engine**.
+- **Downstream:** A finalized pathway can be passed back into the **Simulation Tool** to test workload on a per-student-route basis.
+
+---
+### 9. Limitations
+- It is a structural rules engine; it does not replace human academic advising.
+- Cannot process scheduling logic (like timetable clashes) unless such metadata is explicitly included in the schema.
+
+---
+### 10. Tips
+- The visualization emphasizes prerequisites: watch for "bottleneck" modules that are required by many subsequent specialization choices.

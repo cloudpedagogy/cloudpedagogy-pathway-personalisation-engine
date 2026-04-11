@@ -2,6 +2,25 @@
 
 An academically grounded tool for designing and exploring coherent learning pathways aligned to professional capability frameworks in healthcare and public health.
 
+## 🔗 Role in the CloudPedagogy Ecosystem
+
+**Phase:** Phase 4 — Curriculum Extensions
+
+**Role:**
+Designs and explores coherent learning pathways by aligning module combinations to specific professional capability intents.
+
+**Upstream Inputs:**
+Validated module assets from the **Shared Module Repository System** and structural data from the **Mapping Engine**.
+
+**Downstream Outputs:**
+Provides optimized pathway sequences for validation in the **Curriculum Simulation Tool** and student-facing guidance systems.
+
+**Does NOT:**
+- Define the baseline curriculum alignment rules.
+- Manage institutional governance workflows or systemic risk audits.
+
+For a full system overview, see: [SYSTEM_OVERVIEW.md](../SYSTEM_OVERVIEW.md)
+
 ---
 
 ## 🧐 Overview

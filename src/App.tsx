@@ -187,8 +187,8 @@ function App() {
                 </div>
               )}
 
-              {comparisonReport && (
-                <PathwayComparator report={comparisonReport} />
+              {comparisonReport && generatedPathways.length > 1 && (
+                <PathwayComparator pathwayA={generatedPathways[0]} pathwayB={generatedPathways[1]} dataset={dataset} />
               )}
             </div>
           )}
