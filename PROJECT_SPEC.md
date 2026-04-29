@@ -54,3 +54,12 @@ The only tool that explicitly mandates a "Human-in-the-Loop" governance decision
 
 ## 15. Anything Unclear or Inferred from Repo Contents
 Usage of both Module IDs and Skill IDs as "Prerequisites" creates a transitive dependency graph that is inferred to be resolved by the engine's core logic.
+
+## Capability and Governance Alignment
+
+This tool is aligned with the CloudPedagogy Capability and Governance standard.
+
+- Capability: The tool supports development of practical AI capability through structured interaction and workflow use.
+- Governance: The tool includes lightweight, optional fields that make assumptions, risks, and decisions visible and reviewable.
+
+This alignment ensures the tool supports both effective use of AI and responsible, accountable practice.

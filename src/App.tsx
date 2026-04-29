@@ -19,6 +19,7 @@ import { MethodologyPanel } from './features/methodology/MethodologyPanel';
 import { RecommendationPanel } from './features/pathways/RecommendationPanel';
 import { LogicDisclosure } from './features/governance/LogicDisclosure';
 import { AssumptionsLimitations } from './features/governance/AssumptionsLimitations';
+import { CapabilityGovernanceNotes } from './features/governance/CapabilityGovernanceNotes';
 import type { CombinedDataset, GeneratedPathway, PathwayDecision } from './types';
 
 function App() {
@@ -79,6 +80,10 @@ function App() {
       });
       setSelectedGoalId(null);
     }
+  };
+
+  const handleNotesChange = (notes: { capabilityNotes?: string; governanceNotes?: string }) => {
+    setDataset(prev => ({ ...prev, ...notes }));
   };
 
   const selectedGoal = dataset.learningGoals.find(g => g.id === selectedGoalId);
@@ -197,6 +202,11 @@ function App() {
         <section id="methodology">
           <MethodologyPanel />
         </section>
+
+        <CapabilityGovernanceNotes 
+          dataset={dataset} 
+          onChange={handleNotesChange} 
+        />
       </main>
     </div>
     <BrandingFooter />

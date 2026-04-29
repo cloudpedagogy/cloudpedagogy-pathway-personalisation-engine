@@ -58,4 +58,6 @@ export interface CombinedDataset {
   learningGoals: LearningGoal[];
   modules: Module[];
   pathwayTemplates: PathwayTemplate[];
+  capabilityNotes?: string;
+  governanceNotes?: string;
 }

@@ -47,3 +47,19 @@ This application dynamically generates and manages personalized elective pathway
 ---
 ### 10. Tips
 - The visualization emphasizes prerequisites: watch for "bottleneck" modules that are required by many subsequent specialization choices.
+
+---
+### 11. Capability and Governance
+
+#### What this tool does
+This application provides an environment to explore and evaluate different curriculum sequences while applying a structured capability framework.
+
+#### How capability is developed through use
+Capability is developed through structured interaction with real curriculum workflows. By actively engaging with the engine to align modules with outcomes, users develop practical skills in AI-assisted curriculum design and analysis.
+
+#### How governance is supported
+Governance is supported through optional fields that make assumptions, risks, and decisions visible. The inclusion of transparent logic disclaimers and human review layers ensures that AI involvement remains transparent and accountable.
+
+#### Explanation of optional fields
+- **Capability Notes**: Used to document what capability this tool supports, suggested AI use patterns, and reflections on the AI's role in the workflow.
+- **Governance Notes**: Used to record AI involvement, underlying assumptions, potential risks or concerns, rationale for decisions, and human review notes.
